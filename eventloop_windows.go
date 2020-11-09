@@ -25,9 +25,9 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/panjf2000/gnet/pool/bytebuffer"
+	"github.com/zjllib/gnet/pool/bytebuffer"
 
-	"github.com/panjf2000/gnet/errors"
+	"github.com/zjllib/gnet/errors"
 )
 
 type eventloop struct {

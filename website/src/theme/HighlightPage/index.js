@@ -23,7 +23,7 @@ function prTags(numbers) {
   return numbers.map(number => ({
     enriched: true,
     label: <><i className="feather icon-git-pull-request"></i> {number}</>,
-    permalink: `https://github.com/panjf2000/gnet/commit/${number}`,
+    permalink: `https://github.com/zjllib/gnet/commit/${number}`,
     style: 'secondary'
   }));
 }
@@ -32,7 +32,7 @@ function GetText({release}) {
   if (release == 'features') {
     return <>This kind of change with the `new feature` tag brings new features to gnet. Feel free to have a galance through <Link to="/releases/nightly/download/">all those commits</Link> of new features if you are interested.</>;
   } else {
-    return <p>This change was made available in <Link to={`https://github.com/panjf2000/gnet/releases/tag/v${release}/`}>{release}</Link>.</p>;
+    return <p>This change was made available in <Link to={`https://github.com/zjllib/gnet/releases/tag/v${release}/`}>{release}</Link>.</p>;
   }
 }
 

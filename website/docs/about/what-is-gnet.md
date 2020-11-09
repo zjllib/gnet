@@ -34,4 +34,4 @@ description: "High-level description of the Gnet framework and its features."
 
 ## 📚 Documentation
 
-For more details about using `gnet`, please visit <a href="https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc" target="_blank">documentations for gnet</a>.
+For more details about using `gnet`, please visit <a href="https://pkg.go.dev/github.com/zjllib/gnet?tab=doc" target="_blank">documentations for gnet</a>.

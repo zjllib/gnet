@@ -184,8 +184,8 @@ function InstallationSection() {
         <div className="sub-title">We highly recommend that you install gnet via Go Modules</div>
         
         <p className="hero--subtitle">Run <strong><em>go get</em></strong> to download gnet:</p>
-        <CodeBlock className="language-bash">go get -u github.com/panjf2000/gnet</CodeBlock>
-        <p className="hero--subsubtitle">gnet is available as a Go module, with Go 1.11 Modules support (Go 1.11+), just simply import "github.com/panjf2000/gnet" in your source code and go [build|run|test] will download the necessary dependencies automatically.</p>
+        <CodeBlock className="language-bash">go get -u github.com/zjllib/gnet</CodeBlock>
+        <p className="hero--subsubtitle">gnet is available as a Go module, with Go 1.11 Modules support (Go 1.11+), just simply import "github.com/zjllib/gnet" in your source code and go [build|run|test] will download the necessary dependencies automatically.</p>
       </div>
     </section>
   );
@@ -255,7 +255,7 @@ function Home() {
             On top of a variety of protocols of <Link to="https://github.com/gnet-io/gnet-examples">HTTP, RPC, WebSocket, Redis, etc.</Link>
           </p>
           <div className="hero--buttons">
-            <Link to="https://github.com/panjf2000/gnet" className="button button--primary"><i className="feather icon-github"></i> View on Github</Link>
+            <Link to="https://github.com/zjllib/gnet" className="button button--primary"><i className="feather icon-github"></i> View on Github</Link>
           </div>
           <SVG src="/img/diagram.svg" width="100%" />
           <p className="hero--subsubtitle">

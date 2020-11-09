@@ -18,7 +18,7 @@ function CTA({github, inline, size, style}) {
       </a>
     </div>
     {github != false && <div className="col">
-      <a href="https://github.com/panjf2000/gnet" target="_blank" className={classes}>
+      <a href="https://github.com/zjllib/gnet" target="_blank" className={classes}>
         <div className="panel--icon">
           <i className="feather icon-github"></i>
         </div>

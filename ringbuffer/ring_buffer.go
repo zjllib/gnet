@@ -22,8 +22,8 @@ package ringbuffer
 import (
 	"errors"
 
-	"github.com/panjf2000/gnet/internal"
-	"github.com/panjf2000/gnet/pool/bytebuffer"
+	"github.com/zjllib/gnet/internal"
+	"github.com/zjllib/gnet/pool/bytebuffer"
 )
 
 const initSize = 1 << 12 // 4096 bytes for the first-time allocation on ring-buffer.

@@ -32,7 +32,7 @@ module.exports = {
   "team": [
     {
       "avatar": "https://github.com/panjf2000.png",
-      "bio": "Andy is a front-line programmer based in South China and the author of <a href=\"https://github.com/panjf2000/gnet\">gnet</a>/<a href=\"https://github.com/panjf2000/ants\">ants</a>, he is also a contributor of <a href=\"https://golang.org\">Go programming language</a>.",
+      "bio": "Andy is a front-line programmer based in South China and the author of <a href=\"https://github.com/zjllib/gnet\">gnet</a>/<a href=\"https://github.com/panjf2000/ants\">ants</a>, he is also a contributor of <a href=\"https://golang.org\">Go programming language</a>.",
       "github": "https://github.com/panjf2000",
       "id": "panjf2000",
       "keybase": "https://keybase.io/panjf2000",

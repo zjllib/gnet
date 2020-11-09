@@ -66,7 +66,7 @@ function Footer() {
               <div>
                 <a href="https://twitter.com/_andy_pan" target="_blank"><i className="feather icon-twitter" alt="Gnet's Twitter"></i></a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="https://github.com/panjf2000/gnet" target="_blank"><i className="feather icon-github" alt="Gnet's Github Repo"></i></a>
+                <a href="https://github.com/zjllib/gnet" target="_blank"><i className="feather icon-github" alt="Gnet's Github Repo"></i></a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="https://taohuawu.club/rss.xml" target="_blank"><i className="feather icon-rss" alt="Gnet's RSS feed"></i></a>
               </div>
@@ -128,8 +128,8 @@ function Footer() {
             )}
             {copyright}<br />
             <small>
-              <a href="https://github.com/panjf2000/gnet/security/policy">Security Policy</a>&nbsp;&bull;&nbsp;
-              <a href="https://github.com/panjf2000/gnet/blob/master/PRIVACY.md">Privacy Policy</a>
+              <a href="https://github.com/zjllib/gnet/security/policy">Security Policy</a>&nbsp;&bull;&nbsp;
+              <a href="https://github.com/zjllib/gnet/blob/master/PRIVACY.md">Privacy Policy</a>
             </small><br />
             <small>Acknowledgement for Timber, Inc.</small>
           </div>

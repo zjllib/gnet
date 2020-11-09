@@ -100,14 +100,14 @@ tags: ["type: 官宣", "domain: 展示"]
 ## 安装
 
 ```powershell
-go get -u github.com/panjf2000/gnet
+go get -u github.com/zjllib/gnet
 ```
 
-`gnet` 支持作为一个 Go module 被导入，基于 [Go 1.11 Modules](https://github.com/golang/go/wiki/Modules) (Go 1.11+)，只需要在你的项目里直接 `import "github.com/panjf2000/gnet"`，然后运行 `go [build|run|test]` 自动下载和构建需要的依赖包。
+`gnet` 支持作为一个 Go module 被导入，基于 [Go 1.11 Modules](https://github.com/golang/go/wiki/Modules) (Go 1.11+)，只需要在你的项目里直接 `import "github.com/zjllib/gnet"`，然后运行 `go [build|run|test]` 自动下载和构建需要的依赖包。
 
 ## 使用示例
 
-**详细的文档在这里: [gnet 接口文档](https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc)，不过下面我们先来了解下使用 `gnet` 的简略方法。**
+**详细的文档在这里: [gnet 接口文档](https://pkg.go.dev/github.com/zjllib/gnet?tab=doc)，不过下面我们先来了解下使用 `gnet` 的简略方法。**
 
 用 `gnet` 来构建网络服务器是非常简单的，只需要实现 `gnet.EventHandler`接口然后把你关心的事件函数注册到里面，最后把它连同监听地址一起传递给 `gnet.Serve` 函数就完成了。在服务器开始工作之后，每一条到来的网络连接会在各个事件之间传递，如果你想在某个事件中关闭某条连接或者关掉整个服务器的话，直接在事件函数里把 `gnet.Action` 设置成 `Close` 或者 `Shutdown` 就行了。
 
@@ -123,7 +123,7 @@ package main
 import (
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type echoServer struct {
@@ -149,7 +149,7 @@ package main
 import (
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type echoServer struct {
@@ -167,7 +167,7 @@ func main() {
 }
 ```
 
-正如你所见，上面的例子里 `gnet` 实例只注册了一个 `EventHandler.React` 事件。一般来说，主要的业务逻辑代码会写在这个事件方法里，这个方法会在服务器接收到客户端写过来的数据之时被调用，此时的输入参数: `frame` 已经是解码过后的一个完整的网络数据包，一般来说你需要实现 `gnet` 的 [codec 接口](https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc#ICodec)作为你自己的业务编解码器来处理 TCP 组包和分包的问题，如果你不实现那个接口的话，那么 `gnet` 将会使用[默认的 codec](https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc#BuiltInFrameCodec)，这意味着在 `EventHandler.React` 被触发调用之时输入参数: `frame` 里存储的是所有网络数据：包括最新的以及还在 buffer 里的旧数据，然后处理输入数据（这里只是把数据 echo 回去）并且在处理完之后把需要输出的数据赋值给 `out` 变量并返回，接着输出的数据会经过编码，最后被写回客户端。
+正如你所见，上面的例子里 `gnet` 实例只注册了一个 `EventHandler.React` 事件。一般来说，主要的业务逻辑代码会写在这个事件方法里，这个方法会在服务器接收到客户端写过来的数据之时被调用，此时的输入参数: `frame` 已经是解码过后的一个完整的网络数据包，一般来说你需要实现 `gnet` 的 [codec 接口](https://pkg.go.dev/github.com/zjllib/gnet?tab=doc#ICodec)作为你自己的业务编解码器来处理 TCP 组包和分包的问题，如果你不实现那个接口的话，那么 `gnet` 将会使用[默认的 codec](https://pkg.go.dev/github.com/zjllib/gnet?tab=doc#BuiltInFrameCodec)，这意味着在 `EventHandler.React` 被触发调用之时输入参数: `frame` 里存储的是所有网络数据：包括最新的以及还在 buffer 里的旧数据，然后处理输入数据（这里只是把数据 echo 回去）并且在处理完之后把需要输出的数据赋值给 `out` 变量并返回，接着输出的数据会经过编码，最后被写回客户端。
 
 ### 带阻塞逻辑的 echo 服务器
 
@@ -181,8 +181,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/panjf2000/gnet"
-	"github.com/panjf2000/gnet/pool/goroutine"
+	"github.com/zjllib/gnet"
+	"github.com/zjllib/gnet/pool/goroutine"
 )
 
 type echoServer struct {
@@ -220,8 +220,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/panjf2000/gnet"
-	"github.com/panjf2000/gnet/pool/goroutine"
+	"github.com/zjllib/gnet"
+	"github.com/zjllib/gnet/pool/goroutine"
 )
 
 type echoServer struct {
@@ -265,7 +265,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type echoServer struct {
@@ -320,7 +320,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type echoServer struct {
@@ -375,7 +375,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type echoServer struct {
@@ -434,7 +434,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 var res string
@@ -641,7 +641,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type pushServer struct {
@@ -780,8 +780,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/panjf2000/gnet"
-	"github.com/panjf2000/gnet/pool/goroutine"
+	"github.com/zjllib/gnet"
+	"github.com/zjllib/gnet/pool/goroutine"
 )
 
 type codecServer struct {
@@ -1008,7 +1008,7 @@ gnet.Serve(events, "tcp://:9000", gnet.WithMulticore(true), gnet.WithReusePort(t
 
 `gnet` 内置了多种用于 TCP 流分包的编解码器。
 
-目前一共实现了 4 种常见的编解码器：LineBasedFrameCodec, DelimiterBasedFrameCodec, FixedLengthFrameCodec 和 LengthFieldBasedFrameCodec，基本上能满足大多数应用场景的需求了；而且 `gnet` 还允许用户实现自己的编解码器：只需要实现 [gnet.ICodec](https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc#ICodec) 接口，并通过 functional options 替换掉内部默认的编解码器即可。
+目前一共实现了 4 种常见的编解码器：LineBasedFrameCodec, DelimiterBasedFrameCodec, FixedLengthFrameCodec 和 LengthFieldBasedFrameCodec，基本上能满足大多数应用场景的需求了；而且 `gnet` 还允许用户实现自己的编解码器：只需要实现 [gnet.ICodec](https://pkg.go.dev/github.com/zjllib/gnet?tab=doc#ICodec) 接口，并通过 functional options 替换掉内部默认的编解码器即可。
 
 这里有一个使用编解码器对 TCP 流分包的[例子](https://github.com/gnet-io/gnet-examples/tree/master/examples/codec)。
 
@@ -1055,11 +1055,11 @@ GOMAXPROCS=8
 
 #### Echo Server
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/echo_linux.png)
+![](https://github.com/zjllib/gnet_benchmarks/raw/master/results/echo_linux.png)
 
 #### HTTP Server
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/http_linux.png)
+![](https://github.com/zjllib/gnet_benchmarks/raw/master/results/http_linux.png)
 
 ## FreeBSD (kqueue)
 
@@ -1078,21 +1078,21 @@ GOMAXPROCS=4
 
 #### Echo Server
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/echo_mac.png)
+![](https://github.com/zjllib/gnet_benchmarks/raw/master/results/echo_mac.png)
 
 #### HTTP Server
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/http_mac.png)
+![](https://github.com/zjllib/gnet_benchmarks/raw/master/results/http_mac.png)
 
 # ️🚨 证书
 
-`gnet` 的源码允许用户在遵循 [MIT 开源证书](https://github.com/panjf2000/gnet/blob/master/LICENSE) 规则的前提下使用。
+`gnet` 的源码允许用户在遵循 [MIT 开源证书](https://github.com/zjllib/gnet/blob/master/LICENSE) 规则的前提下使用。
 
 # 👏 贡献者
 
-请在提 PR 之前仔细阅读 [Contributing Guidelines](https://github.com/panjf2000/gnet/blob/master/CONTRIBUTING.md)，感谢那些为 `gnet` 贡献过代码的开发者！
+请在提 PR 之前仔细阅读 [Contributing Guidelines](https://github.com/zjllib/gnet/blob/master/CONTRIBUTING.md)，感谢那些为 `gnet` 贡献过代码的开发者！
 
-[![](https://opencollective.com/gnet/contributors.svg?width=890&button=false)](https://github.com/panjf2000/gnet/graphs/contributors)
+[![](https://opencollective.com/gnet/contributors.svg?width=890&button=false)](https://github.com/zjllib/gnet/graphs/contributors)
 
 # 🙏 致谢
 
@@ -1137,7 +1137,7 @@ GOMAXPROCS=4
 
 # 💴 捐赠者名单
 
-<a target="_blank" href="https://github.com/patrick-othmer"><img src="https://avatars1.githubusercontent.com/u/8964313" width="100" alt="Patrick Othmer" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/panjf2000/gnet"><img src="https://avatars2.githubusercontent.com/u/50285334" width="100" alt="Jimmy" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/cafra"><img src="https://avatars0.githubusercontent.com/u/13758306" width="100" alt="ChenZhen" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/yangwenmai"><img src="https://avatars0.githubusercontent.com/u/1710912" width="100" alt="Mai Yang" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/BeijingWks"><img src="https://avatars3.githubusercontent.com/u/33656339" width="100" alt="王开帅" /></a>
+<a target="_blank" href="https://github.com/patrick-othmer"><img src="https://avatars1.githubusercontent.com/u/8964313" width="100" alt="Patrick Othmer" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/zjllib/gnet"><img src="https://avatars2.githubusercontent.com/u/50285334" width="100" alt="Jimmy" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/cafra"><img src="https://avatars0.githubusercontent.com/u/13758306" width="100" alt="ChenZhen" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/yangwenmai"><img src="https://avatars0.githubusercontent.com/u/1710912" width="100" alt="Mai Yang" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/BeijingWks"><img src="https://avatars3.githubusercontent.com/u/33656339" width="100" alt="王开帅" /></a>
 
 # 💵 付费支持
 

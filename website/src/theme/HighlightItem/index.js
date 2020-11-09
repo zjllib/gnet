@@ -18,7 +18,7 @@ function prTags(numbers) {
   return numbers.map(number => ({
     enriched: true,
     label: <><i className="feather icon-git-pull-request"></i> {number}</>,
-    permalink: `https://github.com/panjf2000/gnet/commit/${number}`,
+    permalink: `https://github.com/zjllib/gnet/commit/${number}`,
     style: 'secondary'
   }));
 }

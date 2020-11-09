@@ -24,9 +24,9 @@ package gnet
 import (
 	"net"
 
-	"github.com/panjf2000/gnet/pool/bytebuffer"
-	prb "github.com/panjf2000/gnet/pool/ringbuffer"
-	"github.com/panjf2000/gnet/ringbuffer"
+	"github.com/zjllib/gnet/pool/bytebuffer"
+	prb "github.com/zjllib/gnet/pool/ringbuffer"
+	"github.com/zjllib/gnet/ringbuffer"
 )
 
 type stderr struct {

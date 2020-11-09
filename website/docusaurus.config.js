@@ -25,7 +25,7 @@ module.exports = {
         { to: "highlights/", label: "Highlights", position: "right" },
         { to: "community/", label: "Community", position: "right" },
         {
-          href: "https://github.com/panjf2000/gnet",
+          href: "https://github.com/zjllib/gnet",
           label: "GitHub",
           position: "right",
         },
@@ -64,7 +64,7 @@ module.exports = {
             },
             {
               label: "Github",
-              to: "https://github.com/panjf2000/gnet",
+              to: "https://github.com/zjllib/gnet",
             },
             {
               label: "Github Organization",
@@ -84,7 +84,7 @@ module.exports = {
       logo: {
         alt: "Gnet",
         src: "/img/footer-logo.svg",
-        href: "https://github.com/panjf2000/gnet/",
+        href: "https://github.com/zjllib/gnet/",
       },
       copyright: `Copyright © ${new Date().getFullYear()} Andy Pan`,
     },
@@ -99,7 +99,7 @@ module.exports = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        editUrl: "https://github.com/panjf2000/gnet/edit/master/website/",
+        editUrl: "https://github.com/zjllib/gnet/edit/master/website/",
         sidebarPath: require.resolve("./sidebars.js"),
       },
     ],

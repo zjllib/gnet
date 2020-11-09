@@ -46,7 +46,7 @@ function Community() {
                 </a>
               </div>
               <div className="col">
-                <a href="https://github.com/panjf2000/gnet" target="_blank" className="panel panel--button">
+                <a href="https://github.com/zjllib/gnet" target="_blank" className="panel panel--button">
                   <div className="panel--icon">
                     <i className="feather icon-github"></i>
                   </div>
@@ -84,11 +84,11 @@ function Community() {
             <AnchoredH3 id="contribute" className="header--flush">How do I contribute to Gnet?</AnchoredH3>
 
             <p>
-              Gnet is <a href="https://github.com/panjf2000/gnet">open-source</a> and welcomes contributions. A few guidelines to help you get started:
+              Gnet is <a href="https://github.com/zjllib/gnet">open-source</a> and welcomes contributions. A few guidelines to help you get started:
             </p>
             <ol>
-              <li>Read our <a href="https://github.com/panjf2000/gnet/blob/master/CONTRIBUTING.md" target="_blank">contribution guide</a>.</li>
-              <li>Start with <a href="https://github.com/panjf2000/gnet/issues?q=is%3Aissue+label%3A%22good+first+issue%22" target="_blank">good first issues</a>.</li>
+              <li>Read our <a href="https://github.com/zjllib/gnet/blob/master/CONTRIBUTING.md" target="_blank">contribution guide</a>.</li>
+              <li>Start with <a href="https://github.com/zjllib/gnet/issues?q=is%3Aissue+label%3A%22good+first+issue%22" target="_blank">good first issues</a>.</li>
               <li>Join our <a href="https://gitter.im/gnet-io/gnet" target="_blank">chat</a> if you have any questions. We are happy to help!</li>
             </ol>
 
@@ -113,7 +113,7 @@ function Community() {
             </p>
             <ol>
               <li><a href="https://github.com/gnet-io/gnet-examples" target="_blank">Gnet Examples</a></li>
-              <li><a href="https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc" target="_blank">Gnet Documentaions</a></li>
+              <li><a href="https://pkg.go.dev/github.com/zjllib/gnet?tab=doc" target="_blank">Gnet Documentaions</a></li>
             </ol>
           </div>
         </section>

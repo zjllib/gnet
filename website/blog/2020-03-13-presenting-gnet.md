@@ -100,14 +100,14 @@ The purpose of implementing inbound and outbound ring-buffers in `gnet` is to tr
 ## Installation
 
 ```powershell
-go get -u github.com/panjf2000/gnet
+go get -u github.com/zjllib/gnet
 ```
 
-`gnet` is available as a Go module, with [Go 1.11 Modules](https://github.com/golang/go/wiki/Modules) support (Go 1.11+), just simply `import "github.com/panjf2000/gnet"` in your source code and `go [build|run|test]` will download the necessary dependencies automatically.
+`gnet` is available as a Go module, with [Go 1.11 Modules](https://github.com/golang/go/wiki/Modules) support (Go 1.11+), just simply `import "github.com/zjllib/gnet"` in your source code and `go [build|run|test]` will download the necessary dependencies automatically.
 
 ## Usage Examples
 
-**The detailed documentation is located in here: [docs of gnet](https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc), but let's pass through the brief instructions first.**
+**The detailed documentation is located in here: [docs of gnet](https://pkg.go.dev/github.com/zjllib/gnet?tab=doc), but let's pass through the brief instructions first.**
 
 It is easy to create a network server with `gnet`. All you have to do is just to make your implementation of `gnet.EventHandler` interface and register your event-handler functions to it, then pass it to the `gnet.Serve` function along with the binding address(es). Each connection is represented as a `gnet.Conn` interface that is passed to various events to differentiate the clients. At any point you can close a connection or shutdown the server by return a `Close` or `Shutdown` action from an event function.
 
@@ -124,7 +124,7 @@ package main
 import (
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type echoServer struct {
@@ -150,7 +150,7 @@ package main
 import (
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type echoServer struct {
@@ -168,7 +168,7 @@ func main() {
 }
 ```
 
-As you can see, this example of echo server only sets up the `EventHandler.React` function where you commonly write your main business code and it will be called once the server receives input data from a client. What you should know is that the input parameter: `frame` is a complete packet which has been decoded by the codec, as a general rule, you should implement the `gnet` [codec interface](https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc#ICodec) as the business codec to packet and unpacket TCP stream, but if you don't, your `gnet` server is going to work with the [default codec](https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc#BuiltInFrameCodec) under the acquiescence, which means all data inculding latest data and previous data in buffer will be stored in the input parameter: `frame` when `EventHandler.React` is being triggered. The output data will be then encoded and sent back to that client by assigning the `out` variable and returning it after your business code finish processing data(in this case, it just echo the data back).
+As you can see, this example of echo server only sets up the `EventHandler.React` function where you commonly write your main business code and it will be called once the server receives input data from a client. What you should know is that the input parameter: `frame` is a complete packet which has been decoded by the codec, as a general rule, you should implement the `gnet` [codec interface](https://pkg.go.dev/github.com/zjllib/gnet?tab=doc#ICodec) as the business codec to packet and unpacket TCP stream, but if you don't, your `gnet` server is going to work with the [default codec](https://pkg.go.dev/github.com/zjllib/gnet?tab=doc#BuiltInFrameCodec) under the acquiescence, which means all data inculding latest data and previous data in buffer will be stored in the input parameter: `frame` when `EventHandler.React` is being triggered. The output data will be then encoded and sent back to that client by assigning the `out` variable and returning it after your business code finish processing data(in this case, it just echo the data back).
 
 ### Echo server with blocking logic
 
@@ -182,8 +182,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/panjf2000/gnet"
-	"github.com/panjf2000/gnet/pool/goroutine"
+	"github.com/zjllib/gnet"
+	"github.com/zjllib/gnet/pool/goroutine"
 )
 
 type echoServer struct {
@@ -221,8 +221,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/panjf2000/gnet"
-	"github.com/panjf2000/gnet/pool/goroutine"
+	"github.com/zjllib/gnet"
+	"github.com/zjllib/gnet/pool/goroutine"
 )
 
 type echoServer struct {
@@ -266,7 +266,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type echoServer struct {
@@ -321,7 +321,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type echoServer struct {
@@ -376,7 +376,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type echoServer struct {
@@ -435,7 +435,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 var res string
@@ -642,7 +642,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/panjf2000/gnet"
+	"github.com/zjllib/gnet"
 )
 
 type pushServer struct {
@@ -781,8 +781,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/panjf2000/gnet"
-	"github.com/panjf2000/gnet/pool/goroutine"
+	"github.com/zjllib/gnet"
+	"github.com/zjllib/gnet/pool/goroutine"
 )
 
 type codecServer struct {
@@ -1011,7 +1011,7 @@ gnet.Serve(events, "tcp://:9000", gnet.WithMulticore(true), gnet.WithReusePort(t
 
 There are multiple built-in codecs in `gnet` which allow you to encode/decode frames into/from TCP stream.
 
-So far `gnet` has four kinds of built-in codecs: LineBasedFrameCodec, DelimiterBasedFrameCodec, FixedLengthFrameCodec and LengthFieldBasedFrameCodec, which generally meets most scenarios, but still `gnet` allows users to customize their own codecs in their `gnet` servers by implementing the interface [gnet.ICodec](https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc#ICodec) and replacing the default codec in `gnet` with customized codec via functional options.
+So far `gnet` has four kinds of built-in codecs: LineBasedFrameCodec, DelimiterBasedFrameCodec, FixedLengthFrameCodec and LengthFieldBasedFrameCodec, which generally meets most scenarios, but still `gnet` allows users to customize their own codecs in their `gnet` servers by implementing the interface [gnet.ICodec](https://pkg.go.dev/github.com/zjllib/gnet?tab=doc#ICodec) and replacing the default codec in `gnet` with customized codec via functional options.
 
 Here is an [example](https://github.com/gnet-io/gnet-examples/tree/master/examples/codec) with codec, showing you how to leverage codec to encode/decode network frames into/from TCP stream.
 
@@ -1058,11 +1058,11 @@ GOMAXPROCS=8
 
 #### Echo Server
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/echo_linux.png)
+![](https://github.com/zjllib/gnet_benchmarks/raw/master/results/echo_linux.png)
 
 #### HTTP Server
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/http_linux.png)
+![](https://github.com/zjllib/gnet_benchmarks/raw/master/results/http_linux.png)
 
 ## On FreeBSD (kqueue)
 
@@ -1081,21 +1081,21 @@ GOMAXPROCS=4
 
 #### Echo Server
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/echo_mac.png)
+![](https://github.com/zjllib/gnet_benchmarks/raw/master/results/echo_mac.png)
 
 #### HTTP Server
 
-![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/http_mac.png)
+![](https://github.com/zjllib/gnet_benchmarks/raw/master/results/http_mac.png)
 
 # ️🚨 License
 
-Source code in `gnet` is available under the [MIT License](https://github.com/panjf2000/gnet/blob/master/LICENSE).
+Source code in `gnet` is available under the [MIT License](https://github.com/zjllib/gnet/blob/master/LICENSE).
 
 # 👏 Contributors
 
-Please read the [Contributing Guidelines](https://github.com/panjf2000/gnet/blob/master/CONTRIBUTING.md) before opening a PR and thank you to all the developers who already made contributions to `gnet`!
+Please read the [Contributing Guidelines](https://github.com/zjllib/gnet/blob/master/CONTRIBUTING.md) before opening a PR and thank you to all the developers who already made contributions to `gnet`!
 
-[![](https://opencollective.com/gnet/contributors.svg?width=890&button=false)](https://github.com/panjf2000/gnet/graphs/contributors)
+[![](https://opencollective.com/gnet/contributors.svg?width=890&button=false)](https://github.com/zjllib/gnet/graphs/contributors)
 
 # 🙏 Acknowledgments
 
@@ -1140,7 +1140,7 @@ Become a bronze sponsor with a monthly donation of $10 and get your logo on our 
 
 # 💴 Donors
 
-<a target="_blank" href="https://github.com/patrick-othmer"><img src="https://avatars1.githubusercontent.com/u/8964313" width="100" alt="Patrick Othmer" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/panjf2000/gnet"><img src="https://avatars2.githubusercontent.com/u/50285334" width="100" alt="Jimmy" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/cafra"><img src="https://avatars0.githubusercontent.com/u/13758306" width="100" alt="ChenZhen" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/yangwenmai"><img src="https://avatars0.githubusercontent.com/u/1710912" width="100" alt="Mai Yang" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/BeijingWks"><img src="https://avatars3.githubusercontent.com/u/33656339" width="100" alt="王开帅" /></a>
+<a target="_blank" href="https://github.com/patrick-othmer"><img src="https://avatars1.githubusercontent.com/u/8964313" width="100" alt="Patrick Othmer" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/zjllib/gnet"><img src="https://avatars2.githubusercontent.com/u/50285334" width="100" alt="Jimmy" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/cafra"><img src="https://avatars0.githubusercontent.com/u/13758306" width="100" alt="ChenZhen" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/yangwenmai"><img src="https://avatars0.githubusercontent.com/u/1710912" width="100" alt="Mai Yang" /></a>&nbsp;&nbsp;<a target="_blank" href="https://github.com/BeijingWks"><img src="https://avatars3.githubusercontent.com/u/33656339" width="100" alt="王开帅" /></a>
 
 # 💵 Paid Support
 

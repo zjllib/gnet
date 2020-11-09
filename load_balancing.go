@@ -27,7 +27,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/panjf2000/gnet/internal"
+	"github.com/zjllib/gnet/internal"
 )
 
 // LoadBalancing represents the the type of load-balancing algorithm.

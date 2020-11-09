@@ -34,4 +34,4 @@ description: "宏观角度陈述 gnet 框架。"
 
 ## 📚 文档
 
-更多关于如何使用 `gnet` 的的细节，请前往 <a href="https://pkg.go.dev/github.com/panjf2000/gnet?tab=doc" target="_blank">gnet 文档</a>。
+更多关于如何使用 `gnet` 的的细节，请前往 <a href="https://pkg.go.dev/github.com/zjllib/gnet?tab=doc" target="_blank">gnet 文档</a>。

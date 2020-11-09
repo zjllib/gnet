@@ -28,8 +28,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/panjf2000/gnet/errors"
-	"github.com/panjf2000/gnet/internal/logging"
+	"github.com/zjllib/gnet/errors"
+	"github.com/zjllib/gnet/internal/logging"
 )
 
 // Action is an action that occurs after the completion of an event.

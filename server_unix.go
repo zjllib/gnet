@@ -31,9 +31,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/panjf2000/gnet/errors"
-	"github.com/panjf2000/gnet/internal/logging"
-	"github.com/panjf2000/gnet/internal/netpoll"
+	"github.com/zjllib/gnet/errors"
+	"github.com/zjllib/gnet/internal/logging"
+	"github.com/zjllib/gnet/internal/netpoll"
 )
 
 type server struct {

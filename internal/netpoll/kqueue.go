@@ -26,8 +26,8 @@ package netpoll
 import (
 	"os"
 
-	"github.com/panjf2000/gnet/internal"
-	"github.com/panjf2000/gnet/internal/logging"
+	"github.com/zjllib/gnet/internal"
+	"github.com/zjllib/gnet/internal/logging"
 	"golang.org/x/sys/unix"
 )
 

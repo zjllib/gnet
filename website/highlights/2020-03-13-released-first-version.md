@@ -12,7 +12,7 @@ tags: ["type: release", "domain: v1.0.0"]
 
 # Features
 
-- [x] [High-performance](https://github.com/panjf2000/gnet/blob/v1.0.0/README.md#-performance) event-loop under networking model of multiple threads/goroutines
+- [x] [High-performance](https://github.com/zjllib/gnet/blob/v1.0.0/README.md#-performance) event-loop under networking model of multiple threads/goroutines
 - [x] Built-in load balancing algorithm: Round-Robin
 - [x] Built-in goroutine pool powered by the library [ants](https://github.com/panjf2000/ants)
 - [x] Built-in memory pool with bytes powered by the library [bytebufferpool](https://github.com/valyala/bytebufferpool)

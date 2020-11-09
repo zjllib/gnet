@@ -46,7 +46,7 @@ matrix:
       go: 1.14.x
       env: GNET_LOGGING_MODE=test
 
-go_import_path: github.com/panjf2000/gnet
+go_import_path: github.com/zjllib/gnet
 
 before_install:
   - |-
