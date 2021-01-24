@@ -34,10 +34,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/valyala/bytebufferpool"
 	"github.com/zjllib/gnet/errors"
 	"github.com/zjllib/gnet/pool/bytebuffer"
 	"github.com/zjllib/gnet/pool/goroutine"
-	"github.com/valyala/bytebufferpool"
 	"go.uber.org/zap"
 )
 
